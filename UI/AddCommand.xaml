@@ -1,0 +1,84 @@
+﻿<Window x:Class="UI.AddCommand"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UI"
+        mc:Ignorable="d"
+        Title="AddOrder" Height="625" Width="500">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="20*"/>
+        </Grid.RowDefinitions>
+        <Image Margin="0,10,0,0" Grid.RowSpan="10" Source="restaurant-clip-art-15-best-blog-clipart.jpg" Stretch="Fill" Opacity="0.7"/>
+        <TextBlock x:Name="textBlockName" HorizontalAlignment="Left" Margin="80,15,0,0" TextWrapping="Wrap" Text="Order Name:" VerticalAlignment="Top" Width="116" FontSize="13.333"/>
+        <TextBox x:Name="textBoxName" HorizontalAlignment="Left" Height="23" Margin="300,15,0,0" TextWrapping="Wrap" Text="{Binding OrderName}" VerticalAlignment="Top" Width="150"/>
+        <TextBlock x:Name="textBlockAdress" HorizontalAlignment="Left" Margin="80,15,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Order Adress:" VerticalAlignment="Top" FontSize="13.333"/>
+        <TextBox x:Name="textBoxAdress" HorizontalAlignment="Left" Height="23" Margin="300,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="{Binding OrderAdress}" VerticalAlignment="Top" Width="150"/>
+        <TextBlock x:Name="textBlockDeliveryAdress" HorizontalAlignment="Left" Margin="80,15,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Delivery Adress:" VerticalAlignment="Top" FontSize="13.333"/>
+        <TextBox x:Name="textBoxDeliveryAdress" HorizontalAlignment="Left" Height="23" Margin="300,15,0,0" Grid.Row="2" TextWrapping="Wrap" Text="{Binding DeliveryAdress}" VerticalAlignment="Top" Width="150"/>
+        <TextBlock x:Name="textBlockCard" HorizontalAlignment="Left" Margin="80,15,0,0" Grid.Row="4" TextWrapping="Wrap" Text="Card Number:" VerticalAlignment="Top" FontSize="13.333"/>
+        <TextBox x:Name="textBoxCard" HorizontalAlignment="Left" Height="23" Margin="300,15,0,0" Grid.Row="4" TextWrapping="Wrap" Text="{Binding Card}" VerticalAlignment="Top" Width="150"/>
+        <TextBlock x:Name="textBlockDate" HorizontalAlignment="Left" Margin="80,15,0,0" Grid.Row="5" TextWrapping="Wrap" Text="Date:" VerticalAlignment="Top" FontSize="13.333"/>
+        <CheckBox x:Name="checkBox" Content="The client is more than 18 aged"  HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="10" VerticalAlignment="Top" Width="419" />
+        <TextBlock x:Name="textBlockHechsher" HorizontalAlignment="Left" Margin="80,15,0,0" Grid.Row="6" TextWrapping="Wrap" Text="Hechsher wanted:" VerticalAlignment="Top" FontSize="13.333" Height="18" Width="105"/>
+        <ComboBox x:Name="comboBoxHechsher"  SelectedItem="{Binding Hechsher}" HorizontalAlignment="Left" Margin="300,15,0,0" Grid.Row="6" VerticalAlignment="Top" Width="150" Height="22" FontSize="13.333" SelectionChanged="comboBoxHechsher_SelectionChanged"/>
+        <Button x:Name="buttonOK" Content="OK" HorizontalAlignment="Left" Margin="311,57,0,0" Grid.Row="10" VerticalAlignment="Top" Width="90" Click="Add" Height="21">
+            <Button.Style>
+                <Style>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=textBoxName, Path=Text}" Value="">
+                            <Setter Property="Button.IsEnabled" Value="false"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=textBoxAdress, Path=Text}" Value="">
+                            <Setter Property="Button.IsEnabled" Value="false"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=ComboBoxTown, Path=SelectedIndex}" Value="-1">
+                            <Setter Property="Button.IsEnabled" Value="false"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=textBoxDeliveryAdress, Path=Text}" Value="">
+                            <Setter Property="Button.IsEnabled" Value="false"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=textBoxCard, Path=Text}" Value="">
+                            <Setter Property="Button.IsEnabled" Value="false"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=comboBoxHechsher, Path=SelectedIndex}" Value="-1">
+                            <Setter Property="Button.IsEnabled" Value="false"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=comboBoxBranch, Path=SelectedIndex}" Value="-1">
+                            <Setter Property="Button.IsEnabled" Value="false"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=DatePicker, Path=SelectedDate}" Value="">
+                            <Setter Property="Button.IsEnabled" Value="false"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=checkBox, Path=IsChecked}" Value="false">
+                            <Setter Property="Button.IsEnabled" Value="false"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        <TextBlock x:Name="textBlockBranch" HorizontalAlignment="Left" Margin="80,10,0,0" TextWrapping="Wrap" Text="Branch available:" VerticalAlignment="Top" FontSize="13.333" Height="18" Width="116" Grid.Row="7"/>
+        <ComboBox x:Name="comboBoxBranch" HorizontalAlignment="Left" Margin="300,11,0,0"  VerticalAlignment="Top" Width="150" Height="22" FontSize="13.333" Grid.Row="7"/>
+        <CheckBox x:Name="CheckBoxPrice" Content="The client wants to order dishes with specific price" HorizontalAlignment="Left" Margin="80,23,0,0" Grid.Row="8" VerticalAlignment="Top" Width="370" FontSize="13.333" Checked="CheckBox_Checked_1"/>
+        <TextBlock x:Name="TextBlockPrice" HorizontalAlignment="Left" Margin="80,17,0,0" Grid.Row="9" TextWrapping="Wrap" Text="Max Price:" VerticalAlignment="Top" FontSize="13.333"/>
+        <TextBox x:Name="TextBoxPrice" HorizontalAlignment="Left" Height="23" Margin="300,17,0,0" Grid.Row="9" TextWrapping="Wrap" Text="{Binding maxPrice}" VerticalAlignment="Top" Width="150"/>
+        <DatePicker x:Name="DatePicker" HorizontalAlignment="Left" Margin="300,10,0,0" Grid.Row="5" VerticalAlignment="Top" RenderTransformOrigin="0.088,0.375" Width="150" Height="29" />
+        <TextBlock x:Name="TextBlockTown" HorizontalAlignment="Left" Margin="80,17,0,0" Grid.Row="3" TextWrapping="Wrap" Text="Town:" VerticalAlignment="Top" FontSize="13.333"/>
+        <ComboBox x:Name="ComboBoxTown" HorizontalAlignment="Left" Margin="300,17,0,0" Grid.Row="3" VerticalAlignment="Top" Width="150" SelectedItem="{Binding Town}" SelectionChanged="ComboBoxTown_SelectionChanged"/>
+        <Button Content="Cancel" HorizontalAlignment="Left" Margin="83,58,0,0" Grid.Row="10" VerticalAlignment="Top" Width="90" Click="ReturnClick"/>
+
+    </Grid>
+</Window>
+

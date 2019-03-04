@@ -1,0 +1,35 @@
+﻿<Window x:Class="UI.StatisticWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="StatisticWindow" Height="500" Width="700">
+    <Grid>
+        <Image Margin="-50,184,500,84" Source="can-stock-photo_csp13865560.jpg" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-36.55"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Margin="471,-15,-28,243" Source="can-stock-photo_csp19903129.jpg" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="32.909"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Margin="181,0,200,0" Source="0060-0808-2613-5213_Jolly_Italian_Waiter_clipart_image.jpg" Stretch="Fill" Opacity="0.8"/>
+        <Button x:Name="DateButton" Content="Date" HorizontalAlignment="Left" Margin="89,335,0,0" VerticalAlignment="Top" Width="171" Height="74" FontSize="15" Click="DateClick" Background="#FFF8E694" Foreground="#FFB61D21" BorderBrush="#FFB61D21" FontFamily="Segoe Print"/>
+        <Button x:Name="AdressButton" Content="Town" HorizontalAlignment="Left" Margin="416,335,0,0" VerticalAlignment="Top" Width="171" Height="74" FontSize="15" Click="AdressClick" Background="#FFF8E694" BorderBrush="#FFB61D21" Foreground="#FFB61D21" FontFamily="Segoe Print"/>
+        <Button x:Name="DatePodiumButton" Content="Date" HorizontalAlignment="Left" Margin="90,118,0,0" VerticalAlignment="Top" Width="170" Height="74" Click="PodiumDClick" Background="#FFF8E694" Foreground="#FFA61D21" BorderBrush="#FFA61D21" FontFamily="Segoe Print" FontSize="15"/>
+        <Button x:Name="AdressPodiumButton" Content="Town" HorizontalAlignment="Left" Margin="416,118,0,0" VerticalAlignment="Top" Width="170" Height="74" Click="PodiumAClick" BorderBrush="#FFA61D21" Foreground="#FFA61D21" Background="#FFF8E694" FontFamily="Segoe Print" FontSize="15"/>
+        <TextBlock HorizontalAlignment="Left" Margin="267,26,0,0" TextWrapping="Wrap" Text="The best dish by:" VerticalAlignment="Top" Height="37" Width="182" FontSize="20" FontFamily="Segoe Print" Foreground="#FFA61D21" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="281,287,0,0" TextWrapping="Wrap" Text="The benefits by:" VerticalAlignment="Top" Height="30" Width="177" FontSize="20" FontFamily="Segoe Print" FontWeight="Bold" Foreground="#FFA61D21"/>
+        <Button Content="Return" HorizontalAlignment="Left" Margin="591,423,0,0" VerticalAlignment="Top" Width="77" Click="ReturnClick" Height="25" BorderBrush="#FFF8E694" Background="#FFB61D21" Foreground="#FFF8E694" FontSize="13.333"/>
+    </Grid>
+</Window>

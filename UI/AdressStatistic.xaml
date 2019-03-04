@@ -1,0 +1,15 @@
+﻿<Window x:Class="UI.AdressStatistic"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="AdressStatistic" Height="279" Width="300">
+    <Grid>
+
+        <Image Source="imagesQJU7V4R8.jpg" Stretch="Fill" Opacity="0.6"/>
+
+        <TextBlock x:Name="TextBlockAdress" HorizontalAlignment="Left" Margin="50,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="36" FontSize="13.333"><Run Text="Select the town on which you want to "/><LineBreak/><Run Text="&#x9;see the benefits:"/></TextBlock>
+        <Button  x:Name="ButtonOK" Content="OK" HorizontalAlignment="Left" Margin="177,201,0,0" VerticalAlignment="Top" Width="75" Click="OKClick" FontSize="13.333"/>
+        <Button x:Name="ButtonCancel" Content="Cancel" HorizontalAlignment="Left" Margin="50,201,0,0" VerticalAlignment="Top" Width="75" Click="CancelClick" FontSize="13.333"/>
+        <ComboBox x:Name="ComboBoxTown" HorizontalAlignment="Left" Margin="89,132,0,0" VerticalAlignment="Top" Width="120" FontSize="13.333"/>
+
+    </Grid>
+</Window>

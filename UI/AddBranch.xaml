@@ -1,0 +1,74 @@
+﻿<Window x:Class="UI.AddBranch"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UI"
+        mc:Ignorable="d"
+        Title="AddBranch" Height="500" Width="400">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+        <Image Grid.RowSpan="9" Source="restaurant-facade-vector-illustration_147187562.jpg" Stretch="Fill" Opacity="0.6" Margin="-9,0,-9,-9"/>
+        <TextBox x:Name="textBoxName" HorizontalAlignment="Left" Height="23" Margin="215,23,0,0" TextWrapping="Wrap" Text="{Binding BranchName}" VerticalAlignment="Top" Width="120" FontSize="13.333"/>
+        <TextBlock x:Name="textBlockName" HorizontalAlignment="Left" Margin="70,23,0,0" TextWrapping="Wrap" Text="Branch Name:" VerticalAlignment="Top" FontSize="13.333"/>
+        <TextBlock x:Name="textBlockAdress" HorizontalAlignment="Left" Margin="70,23,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Adress:" VerticalAlignment="Top" Height="23" Width="120" FontSize="13.333"/>
+        <TextBox x:Name="textBoxAdress" HorizontalAlignment="Left" Height="23" Margin="215,23,0,0" Grid.Row="1" TextWrapping="Wrap" Text="{Binding BranchAdress}" VerticalAlignment="Top" Width="120" FontSize="13.333"/>
+        <TextBlock x:Name="textBlockPhone" HorizontalAlignment="Left" Margin="70,23,0,0" Grid.Row="3" TextWrapping="Wrap" Text="Phone:" VerticalAlignment="Top" FontSize="13.333"/>
+        <TextBox x:Name="textBoxPhone" HorizontalAlignment="Left" Height="23" Margin="215,23,0,0" Grid.Row="3" TextWrapping="Wrap" Text="{Binding Phone}" VerticalAlignment="Top" Width="120" FontSize="13.333"/>
+        <TextBlock x:Name="textBlockDirector" HorizontalAlignment="Left" Margin="70,23,0,0" Grid.Row="4" TextWrapping="Wrap" Text="Director:" VerticalAlignment="Top" FontSize="13.333"/>
+        <TextBox x:Name="textBoxDirector" HorizontalAlignment="Left" Height="23" Margin="215,23,0,0" Grid.Row="4" TextWrapping="Wrap" Text="{Binding Director}" VerticalAlignment="Top" Width="120" FontSize="13.333"/>
+        <TextBlock x:Name="textBlockWorkers" HorizontalAlignment="Left" Margin="70,23,0,0" Grid.Row="5" TextWrapping="Wrap" Text="Workers:" VerticalAlignment="Top" FontSize="13.333"/>
+        <TextBox x:Name="textBoxWorkers" HorizontalAlignment="Left" Height="23" Margin="215,23,0,0" Grid.Row="5" TextWrapping="Wrap" Text="{Binding Workers}" VerticalAlignment="Top" Width="120" FontSize="13.333"/>
+        <TextBlock x:Name="textBlockSenders" HorizontalAlignment="Left" Margin="70,23,0,0" Grid.Row="6" TextWrapping="Wrap" Text="Senders:" VerticalAlignment="Top" FontSize="13.333"/>
+        <TextBox x:Name="textBoxSenders" HorizontalAlignment="Left" Height="23" Margin="215,23,0,0" Grid.Row="6" TextWrapping="Wrap" Text="{Binding BranchSenders}" VerticalAlignment="Top" Width="120" FontSize="13.333"/>
+        <TextBlock x:Name="textBlockHechsher" HorizontalAlignment="Left" Margin="70,23,0,0" Grid.Row="7" TextWrapping="Wrap" Text="Hechsher:" VerticalAlignment="Top" FontSize="13.333"/>
+        <ComboBox x:Name="comboBoxHechsher" HorizontalAlignment="Left" Margin="215,23,0,0" Grid.Row="7" VerticalAlignment="Top" Width="120" SelectedItem="{Binding BranchHechsher}"/>
+        <Button x:Name="buttonAdd" Content="Add" HorizontalAlignment="Left" Margin="245,23,0,0" Grid.Row="8" VerticalAlignment="Top" Width="90" Click="Add">
+            <Button.Style>
+
+                <Style>
+                    <Style.Triggers>
+
+                        <DataTrigger Binding="{Binding Text, ElementName=textBoxName}" Value="">
+                            <Setter Property="UIElement.IsEnabled" Value="false"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Text, ElementName=textBoxAdress}" Value="">
+                            <Setter Property="UIElement.IsEnabled" Value="false"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding SelectedIndex, ElementName=ComboBoxTown}" Value="-1">
+                            <Setter Property="UIElement.IsEnabled" Value="false"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Text, ElementName=textBoxPhone}" Value="">
+                            <Setter Property="UIElement.IsEnabled" Value="false"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Text, ElementName=textBoxDirector}" Value="">
+                            <Setter Property="UIElement.IsEnabled" Value="false"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Text, ElementName=textBoxWorkers}" Value="">
+                            <Setter Property="UIElement.IsEnabled" Value="false"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Text, ElementName=textBoxSenders}" Value="">
+                            <Setter Property="UIElement.IsEnabled" Value="false"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding SelectedIndex, ElementName=comboBoxHechsher}" Value="-1">
+                            <Setter Property="UIElement.IsEnabled" Value="false"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        <TextBlock x:Name="TextBlockTown" HorizontalAlignment="Left" Margin="70,23,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Town:" VerticalAlignment="Top" FontSize="13.333"/>
+        <ComboBox x:Name="ComboBoxTown" HorizontalAlignment="Left" Margin="215,23,0,0" Grid.Row="2" VerticalAlignment="Top" Width="120" SelectedItem="{Binding BranchTown}"/>
+        <Button Content="Cancel" HorizontalAlignment="Left" Margin="62,22,0,0" Grid.Row="8" VerticalAlignment="Top" Width="90" Click="ReturnClick" FontSize="13.333"/>
+    </Grid>
+</Window>

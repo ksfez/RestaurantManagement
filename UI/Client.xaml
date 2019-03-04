@@ -1,0 +1,12 @@
+﻿<Window x:Class="UI.Client"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Client" Height="300" Width="300">
+    <Grid>
+        <Image Margin="0,0,0,1" Source="cozinheiro-chefe-que-aponta-no-menu-31954619.jpg" Stretch="Fill"/>
+
+        <Button x:Name="ButtonNew" Content="New Client" HorizontalAlignment="Left" Margin="45,85,0,0" VerticalAlignment="Top" Width="152" Height="41" FontSize="13.333" Click="NewClick" Background="#FFF4F1EC" Foreground="#FF392518" OpacityMask="#FF392518"/>
+        <Button x:Name="ButtonOld" Content="Existing Client" HorizontalAlignment="Left" Margin="45,172,0,0" VerticalAlignment="Top" Width="152" Height="39" FontSize="13.333" Click="OldClick" Background="#FFF4F1EC" Foreground="#FF392518" OpacityMask="#FF392518"/>
+
+    </Grid>
+</Window>

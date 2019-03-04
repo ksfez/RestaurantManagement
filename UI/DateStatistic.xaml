@@ -1,0 +1,15 @@
+﻿<Window x:Class="UI.DateStatistic"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="DateStatistic" Height="279" Width="300">
+    <Grid>
+
+        <Image Source="date.jpg" Stretch="Fill" Opacity="0.35" Margin="0,10,-10,-10"/>
+
+        <TextBlock x:Name="TextBlockDate" HorizontalAlignment="Left" Margin="44,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="36" FontSize="13.333"><Run Text="Select the date on which you want to "/><LineBreak/><Run Text="&#x9;see the benefits:"/></TextBlock>
+        <DatePicker x:Name="DatePicker" HorizontalAlignment="Left" Margin="95,114,0,0" VerticalAlignment="Top" FontSize="13.333"/>
+        <Button  x:Name="ButtonOK" Content="OK" HorizontalAlignment="Left" Margin="178,186,0,0" VerticalAlignment="Top" Width="75" Click="OKClick" FontSize="13.333"/>
+        <Button x:Name="ButtonCancel" Content="Cancel" HorizontalAlignment="Left" Margin="54,186,0,0" VerticalAlignment="Top" Width="75" Click="CancelClick" FontSize="13.33"/>
+
+    </Grid>
+</Window>
